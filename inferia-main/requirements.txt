@@ -1,4 +1,4 @@
 # File Watcher Service
--e ../rag-watcher
+-e ../rag_watcher
 
 
