@@ -1,0 +1,4 @@
+# File Watcher Service
+-e ../rag-watcher
+
+
