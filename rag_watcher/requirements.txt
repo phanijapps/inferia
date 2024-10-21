@@ -1,5 +1,5 @@
 #common util
--e ../common/
+-e ../common_util
 
 #External Depenedencies
 PyPDF2==3.0.1

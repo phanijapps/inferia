@@ -1,4 +1,4 @@
-im
+from common_util import setup_logger
 import time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
@@ -9,15 +9,16 @@ class FileHandler(FileSystemEventHandler):
     def __init__(self, directory, callback):
         self.directory = directory
         self.callback = callback
+        self.logger = setup_logger(name="FileHandler")
         
 
     def on_created(self, event):
         print(event)
         if event.is_directory:
-            print("Is Dir")
+            self.logger.info("Is Dir")
             return
         if event.src_path.endswith(".pdf"):
-            print(f"New PDF file detected: {event.src_path}")
+            self.logger.info(f"New PDF file detected: {event.src_path}")
             read_pdf(event.src_path, self.callback)
             move_file(event.src_path)
 
